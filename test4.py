@@ -100,6 +100,8 @@ class UserService:
             raise ValueError("User not found")
         if "@" not in email:
             raise ValueError("Invalid email")
+        if self.repo.find_by_email(email):
+            raise ValueError("Email already registered")
         self.repo.email_index.pop(user.email, None)
         user.email = email
         self.repo.email_index[email] = user.id
