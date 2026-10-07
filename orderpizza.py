@@ -36,7 +36,7 @@ def main():
 
         quantity = int(input("Enter quantity: "))
 
-        if quantity < 0:                    
+        if quantity <= 0:                    
             print("Quantity must be greater than 0.")
             continue
 
