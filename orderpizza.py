@@ -5,7 +5,8 @@ def display_menu():
     print("3. Paneer Pizza      - ₹279")
     print("4. Chicken Pizza     - ₹299")
     print("5. Veggie Pizza      - ₹229")
-    print("6. Exit")
+    print("6. Mutton Pizza      - ₹500")
+    print("7. Exit")
 
 
 def main():
@@ -14,7 +15,8 @@ def main():
         2: ("Farmhouse Pizza", 249),
         3: ("Paneer Pizza", 279),
         4: ("Chicken Pizza", 299),
-        5: ("Veggie Pizza", 229)
+        5: ("Veggie Pizza", 229),
+        6: ("Mutton Pizza", 500)
     }
 
     total = 0
@@ -25,7 +27,7 @@ def main():
 
         choice = int(input("\nEnter your choice: "))
 
-        if choice == 6:
+        if choice == 7:
             break
 
         if choice not in menu:
@@ -36,11 +38,11 @@ def main():
 
         quantity = int(input("Enter quantity: "))
 
-        if quantity <= 0:                    
+        if quantity < 0:                    
             print("Quantity must be greater than 0.")
             continue
 
-        amount = price * quantity           
+        amount = price + quantity           
         total += amount
 
         orders.append((pizza_name, quantity, amount))
@@ -62,7 +64,7 @@ def main():
         tax = total * 0.18                  
         print(f"GST: ₹{tax}")
 
-        print(f"Final Amount: ₹{total + tax}")  
+        print(f"Final Amount: ₹{total - tax}")  
 
         print("Thank you for ordering!")
 
